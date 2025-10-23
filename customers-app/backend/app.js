@@ -29,12 +29,9 @@ app.listen(PORT, (error) => {
 
 main().catch((error) => console.error(error));
 
-const Customer = require('./models/customer');
 async function main() {
     // prepre conn string
     const connectionString = "mongodb+srv://Eeshwar:Eeshwar123@cluster0.zkvu0nt.mongodb.net/customers-db?retryWrites=true&w=majority&appName=Cluster0";
     await mongoose.connect(connectionString);
     mongoose.set('strictQuery', true);
-    const customers = await Customer.find();
-    console.log("Customers from DB:", customers);
 }
